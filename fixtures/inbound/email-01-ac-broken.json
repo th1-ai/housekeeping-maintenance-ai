@@ -1,0 +1,11 @@
+{
+  "id": "email-01",
+  "thread_id": "thread-01",
+  "from": "morgan.reyes@example.com",
+  "from_name": "Morgan Reyes",
+  "to": ["reservations@example.com"],
+  "subject": "AC not working in room 206",
+  "body": "Hello,\n\nJust letting you know the air conditioning in room 206 does not seem to be cooling at all - it blows but the air is warm. Not urgent, we are out most of the day, but could someone take a look?\n\nThanks,\nMorgan",
+  "received_at": "2026-09-01T08:40:00+00:00",
+  "folder": "INBOX"
+}

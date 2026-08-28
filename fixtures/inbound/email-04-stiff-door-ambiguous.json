@@ -1,0 +1,11 @@
+{
+  "id": "email-04",
+  "thread_id": "thread-04",
+  "from": "elena.marchetti@example.com",
+  "from_name": "Elena Marchetti",
+  "to": ["reservations@example.com"],
+  "subject": "Lovely stay so far",
+  "body": "Hi,\n\nHaving a wonderful stay, thank you. Just a tiny thing - the wardrobe door was a little stiff to open on the first night, but we figured it out and it has been fine since. Not worth a fuss, just mentioning it.\n\nWarmly,\nElena",
+  "received_at": "2026-09-01T11:30:00+00:00",
+  "folder": "INBOX"
+}

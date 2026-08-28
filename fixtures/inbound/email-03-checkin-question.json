@@ -1,0 +1,11 @@
+{
+  "id": "email-03",
+  "thread_id": "thread-03",
+  "from": "priya.nandakumar@example.com",
+  "from_name": "Priya Nandakumar",
+  "to": ["reservations@example.com"],
+  "subject": "Check-in time this Friday",
+  "body": "Hello,\n\nWe land quite late on Friday - what time is check-in, and is there someone at reception overnight if we arrive after midnight?\n\nThanks,\nPriya",
+  "received_at": "2026-09-01T10:15:00+00:00",
+  "folder": "INBOX"
+}

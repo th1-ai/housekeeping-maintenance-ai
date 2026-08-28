@@ -1,0 +1,11 @@
+{
+  "id": "email-02",
+  "thread_id": "thread-02",
+  "from": "daniel.okafor@example.com",
+  "from_name": "Daniel Okafor",
+  "to": ["reservations@example.com"],
+  "subject": "Small leak under the bathroom sink, room 202",
+  "body": "Hi there,\n\nThere is a small leak under the bathroom sink in room 202 - a bit of water pooling on the floor overnight. Nothing dramatic but wanted to flag it before it gets worse.\n\nBest,\nDaniel",
+  "received_at": "2026-09-01T09:05:00+00:00",
+  "folder": "INBOX"
+}

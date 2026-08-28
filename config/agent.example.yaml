@@ -1,0 +1,91 @@
+# ---------------------------------------------------------------------------
+# agent.yaml - The Steward's own knobs. `make setup` copies this to
+# config/agent.yaml; edit that copy, this example stays as a clean reference.
+#
+# The Steward builds today's cleaning routes, logs and triages maintenance
+# tickets (from a seeded queue and from guest email), and runs the Locksmith
+# key log. It never dispatches a route or applies a triage plan on its own -
+# both wait in the review queue. See docs/how-it-works.md for the full loop.
+# ---------------------------------------------------------------------------
+
+# Which of pms/email/messaging this agent actually reads from - messaging is
+# send-only here (dispatching the finished plan), never read. Keeps
+# `make run`'s SAMPLE DATA warning honest when `systems.messaging.adapter`
+# is left as `mock`. See core/adapters/__init__.py:_systems_used.
+systems_used: [pms, email]
+
+# How many staff a shift models. More routes than this triggers the capacity
+# warning instead of silently understaffing ("goes to agency or slips to
+# tomorrow"). Set this to your own housekeeping headcount.
+housekeeping_headcount: 6
+
+# Minutes of productive cleaning time per attendant per shift, and the minutes
+# each kind of stop takes. These are the shared benchmarks the route optimiser
+# and the capacity math both use.
+shift_minutes: 390
+service_minutes:
+  checkout: 35     # departure, full clean and turn
+  turn: 35
+  stayover: 20
+  arrival: 10      # arrival check on an already-clean room
+
+# Walking-time model used to cost both routing strategies (wing vs flat) on
+# every run, so the minutes-saved claim is always provable, not asserted.
+walking:
+  same_floor_minutes: 0.4    # between two stops on the same floor
+  floor_change_minutes: 2.0  # whenever the attendant changes floor
+
+# A deterministic stand-in for "N stays since the last deep clean": a
+# checkout/turn room is due when (room_number + day_offset) % deep_clean_every
+# == 0. No table tracks real deep-clean history yet - see
+# docs/how-it-works.md "Design decisions".
+deep_clean_every: 21
+deep_clean_extra_minutes: 25
+
+# The five toggles the demo calls hk_rules. Each one changes what the route
+# and triage engines do - see docs/how-it-works.md for exactly what flips.
+rules:
+  wing_routing: true          # clean one floor at a time vs. one shared worklist
+  checkout_first: true        # departures before arrival checks before stayovers
+  deep_clean_cadence: true    # protect the extra deep-clean minutes in the route
+  maintenance_interleave: true  # slot open high-priority tickets into the route
+  contractor_threshold: true  # hold contractor-cost jobs for chief engineer sign-off
+
+# Two named trades a ticket can be routed to. Replace with your own engineers'
+# names - tools/engine.py never hardcodes a name, only these config values.
+# One technician covering every trade? Point both keys at the same name -
+# tools/triage.py:_engineer_name and tools/doctor.py:check_engineers just
+# look up whatever string is here, so a single name works exactly like two.
+engineers:
+  mechanical: "Nuno"    # plumbing, HVAC, carpentry, general maintenance
+  electrical: "Marta"   # electrical, electronics, locks, AV
+
+# A ticket routes to a contractor when its trade is contractor-only
+# (commercial refrigeration) or its parts+labour estimate exceeds this many
+# hotel-currency units. See tools/engine.py:trade_for / escalation_for.
+contractor_signoff_threshold: 300
+
+# Engineers start their day at this time; a job that would start after
+# close_hour rolls to "Tomorrow". Low-priority tickets always batch into the
+# Friday planned-maintenance round regardless of the clock.
+engineer_start_hour: 9
+engineer_close_hour: 17
+travel_minutes_between_jobs: 15
+
+# Below this, a "does this guest email describe a maintenance issue" answer
+# is queued as needs_human instead of turned into a ticket automatically.
+ticket_detect_confidence_threshold: 0.6
+
+# How often `tools/run.py --watch` polls, and what `make schedule` prints by
+# default. Route building, ticket intake and triage all run in the one
+# `main` job (`tools/run.py`, folding workflows/10-routes.md and
+# workflows/11-triage.md together) - see CLAUDE.md "Agent specifics" for why.
+# The Locksmith (`tools/locks.py`) has no entry here on purpose: it is
+# on-demand only, run whenever a key is issued or revoked, never on a
+# schedule - see workflows/12-locks.md. `make schedule ARGS="--all"` prints
+# one snippet per entry below; see scheduler/ for cron/launchd/systemd
+# examples.
+schedule:
+  main:
+    command: "tools/run.py --once"
+    cadence: "*/30 * * * *"     # routes + ticket intake + triage, every 30 minutes

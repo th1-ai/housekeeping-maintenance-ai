@@ -1,0 +1,83 @@
+[
+  {
+    "id": "res-2001",
+    "external_ref": "AUR-2001",
+    "status": "confirmed",
+    "check_in": "2026-09-06",
+    "check_out": "2026-09-09",
+    "room_type_id": "suite",
+    "room_type_name": "Suite",
+    "room_id": "109",
+    "adults": 2,
+    "children": 0,
+    "source": "direct",
+    "total": 980.00,
+    "balance": 0.0,
+    "currency": "EUR",
+    "notes": "Returning guest, welcome amenity requested",
+    "guest": {
+      "id": "g-2001",
+      "first_name": "Elena",
+      "last_name": "Marchetti",
+      "email": "elena.marchetti@example.com",
+      "phone": "+1 555 0142",
+      "country": "IT",
+      "language": "it",
+      "vip": true
+    }
+  },
+  {
+    "id": "res-2002",
+    "external_ref": "AUR-2002",
+    "status": "confirmed",
+    "check_in": "2026-09-01",
+    "check_out": "2026-09-03",
+    "room_type_id": "classic-double",
+    "room_type_name": "Classic Double",
+    "room_id": "111",
+    "adults": 1,
+    "children": 0,
+    "source": "ota",
+    "total": 220.00,
+    "balance": 0.0,
+    "currency": "EUR",
+    "notes": "",
+    "guest": {
+      "id": "g-2002",
+      "first_name": "Daniel",
+      "last_name": "Okafor",
+      "email": "daniel.okafor@example.com",
+      "phone": "+1 555 0177",
+      "country": "GB",
+      "language": "en",
+      "vip": false
+    }
+  },
+  {
+    "id": "res-2003",
+    "external_ref": "AUR-2003",
+    "status": "confirmed",
+    "check_in": "2026-09-01",
+    "check_out": "2026-09-04",
+    "room_type_id": "superior-double",
+    "room_type_name": "Superior Double",
+    "room_id": "304",
+    "adults": 1,
+    "children": 0,
+    "source": "direct",
+    "total": 360.00,
+    "balance": 0.0,
+    "currency": "EUR",
+    "notes": "Flight crew rate, day-sleeper, do not disturb before 16:00",
+    "guest": {
+      "id": "g-2003",
+      "first_name": "Priya",
+      "last_name": "Nandakumar",
+      "email": "priya.nandakumar@example.com",
+      "phone": "+1 555 0193",
+      "country": "US",
+      "language": "en",
+      "vip": false
+    }
+  }
+]

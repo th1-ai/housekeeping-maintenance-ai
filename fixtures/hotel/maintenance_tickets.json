@@ -1,0 +1,70 @@
+{
+  "_comment": "Seeded maintenance tickets for Hotel Aurora (fixture data, invented). Read directly by tools/store_ext.py:load_seed_tickets(). status is always 'open' on seed; tools/triage.py owns everything after that.",
+  "tickets": [
+    {
+      "id": "t01", "room": "204", "priority": "medium",
+      "summary": "Air conditioning not cooling",
+      "detail": "Guest reports the air conditioning is not cooling, blowing warm air only."
+    },
+    {
+      "id": "t02", "room": "Sauna Plant", "priority": "medium",
+      "summary": "Sauna door seal failing",
+      "detail": "Steam escaping around the sauna door seal, needs a new seal fitted."
+    },
+    {
+      "id": "t03", "room": "112", "priority": "low",
+      "summary": "Bathroom tap dripping",
+      "detail": "The bathroom sink tap will not fully shut off, drips constantly."
+    },
+    {
+      "id": "t04", "room": "215", "priority": "high",
+      "summary": "Light switch not working",
+      "detail": "Bedside light switch does nothing when pressed."
+    },
+    {
+      "id": "t05", "room": "103", "priority": "medium",
+      "summary": "Guest locked passport in room safe",
+      "detail": "The in-room safe battery died with the guest's passport locked inside; guest needs it back."
+    },
+    {
+      "id": "t06", "room": "208", "priority": "low",
+      "summary": "Wardrobe door hinge squeaking",
+      "detail": "Wardrobe door hinge squeaks loudly - standards inspection at 14:00 today, needs to be silent."
+    },
+    {
+      "id": "t07", "room": "311", "priority": "medium",
+      "summary": "Loose carpet edge in doorway",
+      "detail": "Carpet edge is coming up in the doorway, a guest could trip on it."
+    },
+    {
+      "id": "t08", "room": "Kitchen Walk-in", "priority": "medium",
+      "summary": "Walk-in cooler temperature drifting overnight",
+      "detail": "Kitchen reports the walk-in cooler drifted to 8C overnight; the HACCP log flagged it."
+    },
+    {
+      "id": "t09", "room": "107", "priority": "medium",
+      "summary": "Balcony door slider sticking",
+      "detail": "Balcony door slider is sticking - Elena Marchetti arrives in 5 days and the room has to be ready."
+    },
+    {
+      "id": "t10", "room": "304", "priority": "medium",
+      "summary": "Blackout blind jammed halfway",
+      "detail": "Blackout blind is jammed halfway open - guest is a pilot on a day-sleeper booking and needs full blackout."
+    },
+    {
+      "id": "t11", "room": "303", "priority": "low",
+      "summary": "Bathroom extractor fan squeaking",
+      "detail": "Bathroom extractor fan squeaks on start-up, not urgent."
+    },
+    {
+      "id": "t12", "room": "Gym", "priority": "medium",
+      "summary": "Treadmill drive belt slipping",
+      "detail": "Treadmill 2 belt slips under load, not safe to use at pace."
+    },
+    {
+      "id": "t13", "room": "113", "priority": "low",
+      "summary": "Minibar not cooling",
+      "detail": "Minibar in the room is warm, drinks are not cold."
+    }
+  ]
+}

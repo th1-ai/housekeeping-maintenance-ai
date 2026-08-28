@@ -1,0 +1,7 @@
+{
+  "is_maintenance_issue": true,
+  "room": "206",
+  "summary": "Air conditioning not cooling",
+  "detail": "The air conditioning in room 206 blows but the air is warm, not cooling at all.",
+  "confidence": 0.93
+}
